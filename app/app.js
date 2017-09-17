@@ -33,7 +33,7 @@ discordClient.Dispatcher.on("MESSAGE_CREATE", e => {
 tmiClient.on("connected", () => console.log("Connected to Twitch as:", config.user));
 
 tmiClient.on("chat", (channel, userstate, message, self) => {
-	const guild = discordClient.Guilds.find(g => g.name == config.discord_server);
+	const guild = discordClient.Guilds.find(g => g.name === config.discord_server);
 	console.log(guild);
 	if (!guild) return console.log("invalid guild");
 	
