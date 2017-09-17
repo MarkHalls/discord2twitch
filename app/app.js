@@ -1,6 +1,8 @@
 const Discordie = require('discordie');
 const tmi = require("tmi.js");
 const config = require("./secrets.json");
+const badges = require("./badges");
+
 
 const tmiOptions = {
 	options: {
@@ -39,6 +41,6 @@ tmiClient.on("chat", (channel, userstate, message, self) => {
 	const chan = guild.channels;
 	if (!self) {
 		// chan[0].sendMessage(JSON.stringify({channel, userstate, message, self}));	
-		chan[0].sendMessage(`*${userstate.username}:* ${message}`);
+		chan[0].sendMessage(`**${userstate.username}:** ${message}`);
 	}
 });
