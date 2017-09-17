@@ -1,44 +1,39 @@
 const Discordie = require('discordie');
 const tmi = require("tmi.js");
+const config = require("./secrets.json");
 
-const user = "firesetter";
+const tmiOptions = {
+	options: {
+		debug: true
+	},
+	connection: {
+		reconnect: true
+	},
+	identity: {
+		username: config.user,
+		password: config.twitch_user_oauth
+	},
+	channels: [config.twitch_channel]
+};
 
-var discordClient = new Discordie();
+const tmiClient = new tmi.client(tmiOptions);
+const discordClient = new Discordie();
 
-discordClient.connect({
-	token: 'MzU4ODExNjU5MjEwNDU3MDg5.DJ982g.Bu1Sdj0MfGhJM-TJGec2sRF-XqM'
-});
+tmiClient.connect();
+discordClient.connect({	token: config.twitch_bot_token });
 
-discordClient.Dispatcher.on("GATEWAY_READY", e => {
-  console.log("Connected as: " + discordClient.User.username);
-});
+discordClient.Dispatcher.on("GATEWAY_READY", () => console.log("Connected to Discord as:", discordClient.User.username));
 
 discordClient.Dispatcher.on("MESSAGE_CREATE", e => {
-	if (e.message.author.username !== "discord2twitch") {
-		tmiClient.say("firesetter", e.message.content);
+	if (e.message.author.username !== config.twitch_botName) {
+		tmiClient.say(config.user, e.message.content);
 	}
 });
 
-const options = {
-    options: {
-        debug: true
-    },
-    connection: {
-        reconnect: true
-    },
-    identity: {
-        username: user,
-        password: "oauth:iyo79ut0i2awrtao39gtqw7cn0q6w8"
-    },
-    channels: ["#firesetter"]
-};
-
-const tmiClient = new tmi.client(options);
-
-tmiClient.connect();
+tmiClient.on("connected", () => console.log("Connected to Twitch as:", config.user));
 
 tmiClient.on("chat", (channel, userstate, message, self) => {
-	const guild = discordClient.Guilds.find(g => g.name == "discord2twitch");
+	const guild = discordClient.Guilds.find(g => g.name == config.twitch_botName);
 	if (!guild) return console.log("invalid guild");
 	
 	const chan = guild.channels;
@@ -47,5 +42,3 @@ tmiClient.on("chat", (channel, userstate, message, self) => {
 		chan[0].sendMessage(`${userstate.username}: ${message}`);
 	}
 });
-
-tmiClient.on("connected", () => tmiClient.action("#firesetter", "hello world"));
