@@ -1,7 +1,7 @@
 const Discordie = require('discordie');
 const tmi = require("tmi.js");
 const config = require("./secrets.json");
-const badges = require("./badges");
+// const badges = require("./badges");
 
 
 const tmiOptions = {
