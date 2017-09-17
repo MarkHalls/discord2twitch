@@ -20,26 +20,25 @@ const tmiClient = new tmi.client(tmiOptions);
 const discordClient = new Discordie();
 
 tmiClient.connect();
-discordClient.connect({	token: config.twitch_bot_token });
+discordClient.connect({	token: config.discord_bot_token });
 
 discordClient.Dispatcher.on("GATEWAY_READY", () => console.log("Connected to Discord as:", discordClient.User.username));
 
 discordClient.Dispatcher.on("MESSAGE_CREATE", e => {
-	if (e.message.author.username !== config.discord_botName) {
-		tmiClient.say(config.user, e.message.content);
+	if (e.message.author.username !== config.discord_botname) {
+	tmiClient.say(config.twitch_channel, e.message.content);
 	}
 });
 
 tmiClient.on("connected", () => console.log("Connected to Twitch as:", config.user));
 
 tmiClient.on("chat", (channel, userstate, message, self) => {
-	const guild = discordClient.Guilds.find(g => g.name === config.discord_server);
-	console.log(guild);
+	const guild = discordClient.Guilds.find(g => g.name == config.discord_server);
 	if (!guild) return console.log("invalid guild");
 	
 	const chan = guild.channels;
-	if (userstate.username !== config.user) {
+	if (!self) {
 		// chan[0].sendMessage(JSON.stringify({channel, userstate, message, self}));	
-		chan[0].sendMessage(`${userstate.username}: ${message}`);
+		chan[0].sendMessage(`*${userstate.username}:* ${message}`);
 	}
 });
