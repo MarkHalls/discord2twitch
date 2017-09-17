@@ -25,7 +25,7 @@ discordClient.connect({	token: config.twitch_bot_token });
 discordClient.Dispatcher.on("GATEWAY_READY", () => console.log("Connected to Discord as:", discordClient.User.username));
 
 discordClient.Dispatcher.on("MESSAGE_CREATE", e => {
-	if (e.message.author.username !== config.twitch_botName) {
+	if (e.message.author.username !== config.discord_botName) {
 		tmiClient.say(config.user, e.message.content);
 	}
 });
@@ -33,11 +33,11 @@ discordClient.Dispatcher.on("MESSAGE_CREATE", e => {
 tmiClient.on("connected", () => console.log("Connected to Twitch as:", config.user));
 
 tmiClient.on("chat", (channel, userstate, message, self) => {
-	const guild = discordClient.Guilds.find(g => g.name == config.twitch_botName);
+	const guild = discordClient.Guilds.find(g => g.name == config.discord_server);
 	if (!guild) return console.log("invalid guild");
 	
 	const chan = guild.channels;
-	if (userstate.username !== user) {
+	if (userstate.username !== config.user) {
 		// chan[0].sendMessage(JSON.stringify({channel, userstate, message, self}));	
 		chan[0].sendMessage(`${userstate.username}: ${message}`);
 	}
