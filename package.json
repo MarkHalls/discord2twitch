@@ -1,0 +1,15 @@
+{
+  "name": "discord2twitch",
+  "version": "0.1.0",
+  "description": "A bot to fascilitate chat on twitch from discord",
+  "main": "app/app.js",
+  "scripts": {
+    "start": "node app/app.js"
+  },
+  "author": "Mark Halls",
+  "license": "MIT",
+  "dependencies": {
+    "discordie": "^0.11.0",
+    "tmi.js": "^1.2.1"
+  }
+}
