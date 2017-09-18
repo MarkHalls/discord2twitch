@@ -1,7 +1,6 @@
 # discord2twitch
 
-**Requires:**  
-secrets.json in app.js with the following info  
+**Requires:** secrets.json in app.js with the following info  
 
 {  
 	"user": "{Twitch Username}",  
