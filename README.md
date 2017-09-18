@@ -4,9 +4,9 @@
 
 {  
 	"user": "{Twitch Username}",  
-	"twitch_channel": "#{CHANNEL}",  
-	"twitch_user_oauth": "{TWITCH OAUTH TOKEN}",  
-	"discord_botname": "{BOTNAME}",  
-	"discord_bot_token": "{DISCORD BOT TOKEN}",  
+	"twitch_channel": "#{Channel}",  
+	"twitch_user_oauth": "{Twitch OAUTH Token}",  
+	"discord_botname": "{Botname}",  
+	"discord_bot_token": "{Discord Bot Token}",  
 	"discord_server": "{Discord server to send messages to}"  
 }
