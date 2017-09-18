@@ -1,5 +1,7 @@
 # discord2twitch
 
+**Install Dependencies with *npm install***
+
 **Requires:** secrets.json in app.js with the following info  
 
 {  
