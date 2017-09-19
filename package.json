@@ -4,7 +4,8 @@
   "description": "A bot to fascilitate chat on twitch from discord",
   "main": "app/app.js",
   "scripts": {
-    "start": "node app/app.js"
+    "start": "node app/app.js",
+    "build": "tsc app/app.ts"
   },
   "author": "Mark Halls",
   "license": "MIT",
