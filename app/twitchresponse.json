@@ -1,0 +1,24 @@
+{
+  "channel": "#firesetter",
+  "userstate": {
+    "badges": { "broadcaster": "1", "premium": "1" },
+    "color": null,
+    "display-name": "FireSetter",
+    "emotes": null,
+    "id": "671a365e-6028-4200-89f8-2704f03e778b",
+    "mod": false,
+    "room-id": "133467257",
+    "sent-ts": "1505630488875",
+    "subscriber": false,
+    "tmi-sent-ts": "1505630488956",
+    "turbo": false,
+    "user-id": "133467257",
+    "user-type": null,
+    "emotes-raw": null,
+    "badges-raw": "broadcaster/1,premium/1",
+    "username": "firesetter",
+    "message-type": "chat"
+  },
+  "message": "test",
+  "self": false
+}
