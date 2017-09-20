@@ -1,4 +1,6 @@
-import * as Discordie from "discordie";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Discordie = require("discordie");
 const discordClient = secretsJson => {
     const client = new Discordie();
     const say = (username, message) => {
@@ -27,5 +29,5 @@ const discordClient = secretsJson => {
         setListeners: setListeners
     };
 };
-export { discordClient };
+exports.discordClient = discordClient;
 //# sourceMappingURL=client.js.map

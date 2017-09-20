@@ -1,4 +1,6 @@
-import * as tmi from "tmi.js";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tmi = require("tmi.js");
 const twitchClient = secretsJson => {
     const tmiOptions = {
         options: {
@@ -32,5 +34,5 @@ const twitchClient = secretsJson => {
         setListeners: setListeners
     };
 };
-export { twitchClient };
+exports.twitchClient = twitchClient;
 //# sourceMappingURL=client.js.map
