@@ -1,5 +1,5 @@
-import { twitchClient } from "./twitch/index";
-import { discordClient } from "./discord/index";
+import { twitchClient } from "./twitch";
+import { discordClient } from "./discord";
 import * as secretsJson from "./secrets.json";
 
 const twitch = twitchClient(secretsJson);

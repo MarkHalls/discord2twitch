@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "es2015",
+    "module": "commonjs",
     "target": "es2015",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -19,7 +19,7 @@
     "removeComments": true,
     "sourceMap": true,
     "baseUrl": "./src",
-    "rootDirs": [".", "./src"],
+    "rootDirs": ["./src"],
     "outDir": "./build",
     "typeRoots": ["./typings.d.ts"]
   },
