@@ -4,7 +4,8 @@
   "description": "A bot to fascilitate chat on twitch from discord",
   "main": "app/app.js",
   "scripts": {
-    "start": "node app/app.js",
+    "setup": "npm i --production",
+    "start": "node build/app.js",
     "build": "tsc"
   },
   "author": "Mark Halls",
@@ -12,5 +13,8 @@
   "dependencies": {
     "discordie": "^0.11.0",
     "tmi.js": "^1.2.1"
+  },
+  "devDependencies": {
+    "typescript": "^2.5.2"
   }
 }
