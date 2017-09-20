@@ -24,9 +24,9 @@ const discordClient = secretsJson => {
         });
     };
     return {
-        connect: connect,
-        say: say,
-        setListeners: setListeners
+        connect,
+        say,
+        setListeners
     };
 };
 exports.discordClient = discordClient;

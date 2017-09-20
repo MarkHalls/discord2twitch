@@ -27,7 +27,9 @@ const twitchClient = secretsJson => {
     );
 
     client.on("chat", (_channel, userstate, message, _self) => {
-      discordClient.say(userstate.username, message);
+      if (!self) {
+        discordClient.say(userstate.username, message);
+      }
     });
   };
 

@@ -22,16 +22,18 @@ const twitchClient = secretsJson => {
     const setListeners = discordClient => {
         client.on("connected", () => console.log("Connected to Twitch as:", secretsJson.user));
         client.on("chat", (_channel, userstate, message, _self) => {
-            discordClient.say(userstate.username, message);
+            if (!self) {
+                discordClient.say(userstate.username, message);
+            }
         });
     };
     const connect = () => {
         client.connect();
     };
     return {
-        connect: connect,
-        say: say,
-        setListeners: setListeners
+        connect,
+        say,
+        setListeners
     };
 };
 exports.twitchClient = twitchClient;
