@@ -10,7 +10,7 @@
 	"twitch_channel": "#Channel",  
 	"twitch_user_oauth": "Twitch OAuth Token",  
 	"discord_botname": "Botname",  
-	"discord_bot_token": "Discord Bot Token",  
-	"discord_server": "Discord server to send messages to"  
+	"discord_bot_token": "Token",  
+	"discord_server": "Server"  
 }
 ```
