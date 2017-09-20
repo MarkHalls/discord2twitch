@@ -2,7 +2,7 @@
 
 **Install Dependencies with *npm install***
 
-**Requires:** secrets.json in app.js with the following info  
+**Requires:** secrets.json in app.js folder with the following info  
 
 ```json 
 {  
