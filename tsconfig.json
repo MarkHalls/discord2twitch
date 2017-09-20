@@ -1,12 +1,27 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/", // path to output directory
-    "sourceMap": true, // allow sourcemap support
-    "strictNullChecks": true, // enable strict null checks as a best practice
-    "module": "es6", // specifiy module code generation
-    "jsx": "react", // use typescript to transpile jsx to js
-    "target": "es5", // specify ECMAScript target version
-    "allowJs": true // allow a partial TypeScript and JavaScript codebase
+    "module": "es2015",
+    "target": "es2015",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    "allowUnreachableCode": false,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+
+    "removeComments": true,
+    "sourceMap": true,
+    "baseUrl": "./src",
+    "rootDirs": [".", "./src"],
+    "outDir": "./build",
+    "typeRoots": ["./typings.d.ts"]
   },
-  "include": ["./src/"]
+  "exclude": ["node_modules"]
 }
