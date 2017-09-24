@@ -1,19 +1,8 @@
 #project private files
 secrets.json
 
-# Logs
-logs
-*.log
-npm-debug.log*
-
-# Runtime data
-pids
-*.pid
-*.seed
-
-# Compiled binary addons (http://nodejs.org/api/addons.html)
+# Compiled
 build
-build/Release
 
 # Dependency directories
 node_modules
