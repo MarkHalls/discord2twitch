@@ -9,7 +9,7 @@ const discordClient = (secretsJson: Secrets) => {
     if (!guild) return console.log("invalid guild");
 
     const chan = guild.channels;
-    if (!self) {
+    if (secretsJson.discord_botname !== username) {
       chan[0].sendMessage(`**${username}:**  ${message}`);
     }
   };
