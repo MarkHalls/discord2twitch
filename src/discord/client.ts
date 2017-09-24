@@ -1,6 +1,7 @@
 import * as Discordie from "discordie";
+import { Secrets } from "../common/types";
 
-const discordClient = secretsJson => {
+const discordClient = (secretsJson: Secrets) => {
   const client = new Discordie();
 
   const say = (username: string, message: string) => {

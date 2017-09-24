@@ -1,6 +1,7 @@
 import * as tmi from "tmi.js";
+import { Secrets } from "../common/types";
 
-const twitchClient = secretsJson => {
+const twitchClient = (secretsJson: Secrets) => {
   const tmiOptions = {
     options: {
       debug: true
