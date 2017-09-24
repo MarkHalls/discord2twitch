@@ -6,13 +6,15 @@
   "scripts": {
     "setup": "npm i --production",
     "start": "node build/app.js",
-    "build": "tsc"
+    "build": "tsc",
+    "audio": "node build/twitch/audio.js"
   },
   "author": "Mark Halls",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.16.2",
     "discordie": "^0.11.0",
+    "m3u8-parser": "^3.0.0",
     "tmi.js": "^1.2.1"
   },
   "devDependencies": {
