@@ -33,10 +33,10 @@ const discordClient = (secretsJson: Secrets) => {
         twitchStreams("r9oouhlom01l7aauf8n1mt89pnzbpp").get("alwaysbecrafting")
       ])
         .then(([connection, links]) => {
-          // const {url} = links[links.length - 1];
+          const {url} = links.find(link => link.quality === "Audio Only");
 
           console.log(links);
-          connection.playArbitraryInput("http://iterations.org/files/music/remixes/Sonic_the_Hedgehog_2_Sky_High_OC_ReMix.mp3");
+          connection.playArbitraryInput(url);
         })
         .catch(console.error)
     });
