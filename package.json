@@ -7,7 +7,8 @@
     "setup": "npm i --production",
     "start": "node build/app.js",
     "build": "tsc",
-    "audio": "node build/twitch/audio.js"
+    "audio": "node build/discord/audio.js",
+    "dev": "yarn build && yarn start"
   },
   "author": "Mark Halls",
   "license": "MIT",
@@ -15,10 +16,12 @@
     "axios": "^0.16.2",
     "discord.js": "^11.2.1",
     "erlpack": "^0.1.2",
+    "ffmpeg-binaries": "^3.2.2-3",
     "m3u8-parser": "^3.0.0",
     "node-opus": "^0.2.7",
     "sodium": "^2.0.1",
     "tmi.js": "^1.2.1",
+    "twitch-get-stream": "^0.4.0",
     "uws": "0.14.5"
   },
   "devDependencies": {

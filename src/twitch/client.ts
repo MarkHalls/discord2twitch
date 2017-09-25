@@ -13,13 +13,13 @@ const twitchClient = (secretsJson: Secrets) => {
       username: secretsJson.user,
       password: secretsJson.twitch_user_oauth
     },
-    channels: [secretsJson.twitch_channel]
+    channels: [`#${secretsJson.twitch_channel}`]
   };
 
   const client = new tmi.client(tmiOptions);
 
   const say = (_username: string, message: string) => {
-    client.say(secretsJson.twitch_channel, message);
+    client.say(`#${secretsJson.twitch_channel}`, message);
   };
 
   const setListeners = discordClient => {

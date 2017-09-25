@@ -1,5 +1,7 @@
+import * as twitchStreams from "twitch-get-stream";
 import * as Discord from "discord.js";
 import { Secrets } from "../common/types";
+// import { getStreamUrl } from "./audio";
 
 const discordClient = (secretsJson: Secrets) => {
   const client = new Discord.Client();
@@ -20,9 +22,24 @@ const discordClient = (secretsJson: Secrets) => {
   };
 
   const setListeners = twitchClient => {
-    client.on("ready", () =>
-      console.log("Connected to Discord as:", client.user.username)
-    );
+    client.on("ready", () => {
+      const guild = client.guilds.find(g => g.name === secretsJson.discord_server);
+      console.log("Connected to Discord as:", client.user.username);
+      const voiceChan = guild.channels
+        .find(chan => chan.type === "voice") as Discord.VoiceChannel;
+      voiceChan.leave();
+      Promise.all([
+        voiceChan.join(),
+        twitchStreams("r9oouhlom01l7aauf8n1mt89pnzbpp").get("alwaysbecrafting")
+      ])
+        .then(([connection, links]) => {
+          // const {url} = links[links.length - 1];
+
+          console.log(links);
+          connection.playArbitraryInput("http://iterations.org/files/music/remixes/Sonic_the_Hedgehog_2_Sky_High_OC_ReMix.mp3");
+        })
+        .catch(console.error)
+    });
 
     client.on("message", message => {
       if (message.author.username !== secretsJson.discord_botname) {
