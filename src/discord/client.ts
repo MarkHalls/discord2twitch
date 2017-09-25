@@ -1,31 +1,32 @@
-import * as Discordie from "discordie";
+import * as Discord from "discord.js";
 import { Secrets } from "../common/types";
 
 const discordClient = (secretsJson: Secrets) => {
-  const client = new Discordie();
+  const client = new Discord.Client();
 
   const say = (username: string, message: string) => {
-    const guild = client.Guilds.find(g => g.name == secretsJson.discord_server);
+    const guild = client.guilds.find(g => g.name === secretsJson.discord_server);
     if (!guild) return console.log("invalid guild");
 
-    const chan = guild.channels;
     if (secretsJson.discord_botname !== username) {
-      chan[0].sendMessage(`**${username}:**  ${message}`);
+      const chan = guild.channels
+        .find(ch => ch.type === "text") as Discord.TextChannel;
+      chan.send(`**${username}:** ${message}`);
     }
   };
 
   const connect = () => {
-    client.connect({ token: secretsJson.discord_bot_token });
+    client.login(secretsJson.discord_bot_token);
   };
 
   const setListeners = twitchClient => {
-    client.Dispatcher.on("GATEWAY_READY", () =>
-      console.log("Connected to Discord as:", client.User.username)
+    client.on("ready", () =>
+      console.log("Connected to Discord as:", client.user.username)
     );
 
-    client.Dispatcher.on("MESSAGE_CREATE", e => {
-      if (e.message.author.username !== secretsJson.discord_botname) {
-        twitchClient.say(null, e.message.content);
+    client.on("message", message => {
+      if (message.author.username !== secretsJson.discord_botname) {
+        twitchClient.say(null, message.cleanContent);
       }
     });
   };

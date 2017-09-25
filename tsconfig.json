@@ -20,8 +20,7 @@
     "sourceMap": true,
     "baseUrl": "./src",
     "rootDirs": ["./src"],
-    "outDir": "./build",
-    "typeRoots": ["./typings.d.ts"]
+    "outDir": "./build"
   },
   "exclude": ["node_modules"]
 }
