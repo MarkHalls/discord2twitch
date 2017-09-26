@@ -1,1 +1,1 @@
-export { Secrets } from "./secrets";
+export { BotConfig } from "./botconfig";
