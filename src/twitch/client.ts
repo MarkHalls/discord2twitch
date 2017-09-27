@@ -1,7 +1,6 @@
 import * as tmi from "tmi.js";
-import { BotConfig } from "../common/types";
 
-const twitchClient = (config: BotConfig) => {
+const twitchClient = (user: string, oauth: string, channel: string) => {
   const tmiOptions = {
     options: {
       debug: true
@@ -10,22 +9,20 @@ const twitchClient = (config: BotConfig) => {
       reconnect: true
     },
     identity: {
-      username: config.user,
-      password: config.twitch_user_oauth
+      username: user,
+      password: oauth
     },
-    channels: [`#${config.twitch_channel}`]
+    channels: [`#${channel}`]
   };
 
   const client = new tmi.client(tmiOptions);
 
   const say = (_username: string, message: string) => {
-    client.say(`#${config.twitch_channel}`, message);
+    client.say(`#${channel}`, message);
   };
 
   const setListeners = discordClient => {
-    client.on("connected", () =>
-      console.log("Connected to Twitch as:", config.user)
-    );
+    client.on("connected", () => console.log("Connected to Twitch as:", user));
 
     client.on("chat", (_channel, userstate, message, self) => {
       if (!self) {
