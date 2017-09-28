@@ -9,7 +9,7 @@ const discordClient = (config: BotConfig) => {
     const guild = client.guilds.find(g => g.name === config.discord_server);
     if (!guild) return console.log("invalid guild");
 
-    if (config.discord_botname !== username) {
+    if (!client.users.find(user => user.username === username)) {
       const chan = guild.channels.find(
         ch => ch.type === "text"
       ) as Discord.TextChannel;
