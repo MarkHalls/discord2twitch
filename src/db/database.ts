@@ -14,4 +14,10 @@ const init = () => {
     .catch(console.error);
 };
 
-export { init };
+const addUser = (id: string, twitchName: string, twitchOauth: string) => {
+  console.log(id, twitchName, twitchOauth);
+};
+
+init();
+
+export { addUser };
