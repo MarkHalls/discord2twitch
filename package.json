@@ -13,10 +13,10 @@
   "author": "Mark Halls",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.16.2",
+    "columnify": "^1.5.4",
     "discord.js": "^11.2.1",
     "erlpack": "^0.1.2",
-    "m3u8-parser": "^3.0.0",
+    "minimist": "^1.2.0",
     "node-opus": "^0.2.7",
     "sodium": "^2.0.1",
     "tmi.js": "^1.2.1",
