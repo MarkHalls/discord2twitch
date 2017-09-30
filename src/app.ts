@@ -14,6 +14,7 @@ switch (true) {
   case args.h:
   case args.help:
     const options = {
+      "-c": "Update botname and oauth tokens",
       "-k --keygen":
         "Generate encryption keys for securing oauth in the database",
       "-f --file": "Location of encryption key file",
