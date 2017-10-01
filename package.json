@@ -8,7 +8,7 @@
     "start": "node build/app.js",
     "build": "tsc",
     "audio": "node build/discord/audio.js",
-    "dev": "yarn build || npm run build && yarn start || npm run start"
+    "dev": "yarn build && yarn start"
   },
   "author": "Mark Halls",
   "license": "MIT",
