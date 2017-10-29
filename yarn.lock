@@ -364,7 +364,7 @@ ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
-nan@2, nan@^2.1.0, nan@^2.2.1, nan@^2.3.2:
+nan@2, nan@^2.1.0, nan@^2.3.2:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.7.0.tgz#d95bf721ec877e08db276ed3fc6eb78f9083ad46"
 
@@ -516,12 +516,6 @@ sntp@1.x.x:
   resolved "https://registry.yarnpkg.com/sntp/-/sntp-1.0.9.tgz#6541184cc90aeea6c6e7b35e2659082443c66198"
   dependencies:
     hoek "2.x.x"
-
-sodium@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/sodium/-/sodium-2.0.1.tgz#64efff6d7699c8f26f91b9ac5b6fc3aa550b2579"
-  dependencies:
-    nan "^2.2.1"
 
 sshpk@^1.7.0:
   version "1.13.1"
